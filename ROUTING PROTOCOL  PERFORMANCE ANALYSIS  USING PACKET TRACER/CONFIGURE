@@ -1,0 +1,20 @@
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# network 10.0.0.0
+Router(config-router)# network 192.168.1.0
+Router(config-router)# no auto-summary
+Router(config-router)# exit
+Router# write memory
+
+Router(config)# router ospf 1
+Router(config-router)# network 10.0.0.0 0.0.0.255 area 0
+Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Router(config-router)# exit
+Router# write memory
+
+Router(config)# router eigrp 100
+Router(config-router)# network 10.0.0.0
+Router(config-router)# network 192.168.1.0
+Router(config-router)# no auto-summary
+Router(config-router)# exit
+Router# write memory
